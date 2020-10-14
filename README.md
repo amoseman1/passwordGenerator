@@ -10,4 +10,4 @@ My knowledge of the javascript basics(arrays, functions, for loops, conditional 
 
 **_URL for deployed application:_**
 
-[Password Gnerator] (https://amoseman1.github.io/passwordGenerator/)
+[Password Generator] (https://amoseman1.github.io/passwordGenerator/)
