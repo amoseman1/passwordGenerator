@@ -89,9 +89,9 @@ var specialCharacters = [
   "~",
 ];
 var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-//Global Variables - can be seen anywhere
+//establish global variables that can be recognized anywhere(even outside the scope of functions)
 var passwordLength;
-//get options from user input
+//get options from user input - prompt/comfirms
 function generateOptions() {
   passwordLength = parseInt(prompt("Please choose a length for your password"));
   if (isNaN(passwordLength) === true) {
@@ -116,7 +116,7 @@ function generateOptions() {
   var hasSpecialCharacters = confirm(
     "Click okay if you want to include special characters in your password"
   );
-  //if else statement
+  //conditional statement forcing user to choose true to at least one confirm
   if (
     hasSpecialCharacters === false &&
     hasNumbers === false &&
@@ -135,7 +135,7 @@ function generateOptions() {
   };
   return password;
 }
-//function will return random password
+//function  that will return random password
 function generateRandom(array) {
   var randomArray = Math.floor(Math.random() * array.length);
   var randomElement = array[randomArray];
