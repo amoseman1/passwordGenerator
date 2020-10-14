@@ -56,12 +56,12 @@ var upperCase = [
 ];
 var specialCharacters = [
   "!",
-  ' " ',
+  '"',
   "#",
   "$",
   "%",
   "&",
-  "  ' ",
+  "'",
   "(",
   ")",
   "*",
@@ -141,6 +141,7 @@ function generateRandom(array) {
   var randomElement = array[randomArray];
   return randomElement;
 }
+
 var generateBtn = document.querySelector("#generate");
 //function will write password to the HTML element
 function writePassword() {
@@ -148,14 +149,14 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 }
-//function will generate a new password
+// this function serves to generate a new password
 function generatePassword() {
   var passwordOptions = generateOptions();
-  //collecting the password result
+  //collecting the password result in empty array (to be used later)
   var result = [];
-  //collecting possible characters
+  //collecting possible characters in empty array
   var possibleChars = [];
-  //collecting guaranteed characters
+  //collecting guaranteed characters in empty array
   var guaraChars = [];
   if (passwordOptions.hasSpecialCharacters) {
     possibleChars = possibleChars.concat(specialCharacters);
@@ -174,15 +175,15 @@ function generatePassword() {
     guaraChars.push(generateRandom(lowerCase));
   }
 
-  //write a for loop that mixes in at least one guaranteed character in the result
-  for (var i = 0; i < guaraChars.length; i++) {
-    result[i] = guaraChars[i];
+  //This for loop creates a random character from the possibleChars array created above in
+  //generatepassWord() and loops until the characters are the length of the prompted choosen user input
+  for (var i = 0; i < passwordLength; i++) {
+    var r = Math.floor(Math.random() * possibleChars.length);
+    result = result + possibleChars[r];
   }
-  //returning result....but you will need to use a method ...join them together
-  guaraChars.join("");
-  console.log(guaraChars.join(""));
+
+  console.log(result);
   return result;
 }
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
